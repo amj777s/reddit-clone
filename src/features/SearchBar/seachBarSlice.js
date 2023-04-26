@@ -14,27 +14,30 @@ const options = {
     initialState:{
         isLoading: false,
         hasFailed: false,
-        results: []
+        contents: []
     },
     reducers: {
 
     },
-    extraReducers: {
-        [getSearchResults.pending]: (state) => {
-            state.isLoading = true;
-            state.hasFailed = false
-        },
-        [getSearchResults.fulfilled]: (state, action) => {
-            state.isLoading = false;
-            state.hasFailed = false;
-            state.results = action.payload;
-        },
-        [getSearchResults.rejected]: (state) => {
-            state.isLoading = false;
-            state.hasFailed =  true;
-        }
+    extraReducers: (builder) => {
+        builder
+            .addCase(getSearchResults.pending, (state)=> {
+                state.isLoading = true;
+                state.hasFailed = false
+            })
+            .addCase(getSearchResults.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.hasFailed = false;
+                state.contents = action.payload;
+            })
+            .addCase(getSearchResults.rejected, (state) => {
+                state.isLoading = false;
+                state.hasFailed =  true;
+            })
+            
+
     }
 }
-
+export const selectContents = state => state.searchResults.contents;
 const searchResultsSlice = createSlice(options);
 export default searchResultsSlice.reducer;
