@@ -2,9 +2,13 @@ import React from 'react';
 import './App.css';
 import SearchBar from '../features/SearchBar/SearchBar';
 import ContentList from '../features/ContentList/ContentList';
+import { getContents} from '../features/subreddit/subbredditSlice';
+import { useDispatch } from 'react-redux';
 import ROUTES from './routes';
 import {
-	BrowserRouter as Router,
+  BrowserRouter as Router,
+	createBrowserRouter,
+  createRoutesFromElements,
 	Routes,
 	Route,
 	NavLink,
@@ -14,6 +18,8 @@ import {
 
 
 function App() {
+const baseUrl = "https://www.reddit.com/r/";
+const dispatch = useDispatch();
   return (
     <Router>
       <div className='App'>
@@ -36,8 +42,15 @@ function App() {
       <Outlet />
 
       <Routes>
-        <Route path = '/r/:subreddit' element={<ContentList />}></Route>
-
+        <Route 
+          path = '/r/:subreddit' 
+          element={<ContentList />}
+          loader={({ params }) => {
+            const search = `${baseUrl}${params.subreddit}.json`;
+            dispatch(getContents(search));
+          }}>
+          </Route>
+        <Route path='/search/:searchresult' element={<ContentList />}></Route>
       </Routes>
     </Router>
     

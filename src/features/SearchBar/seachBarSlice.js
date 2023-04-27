@@ -38,6 +38,6 @@ const options = {
 
     }
 }
-export const selectContents = state => state.searchResults.contents;
+export const selectSearchResults = state => state.searchResults.contents;
 const searchResultsSlice = createSlice(options);
 export default searchResultsSlice.reducer;
