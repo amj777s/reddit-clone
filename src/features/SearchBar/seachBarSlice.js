@@ -14,9 +14,12 @@ const options = {
     initialState:{
         isLoading: false,
         hasFailed: false,
-        contents: []
+        contents: {}
     },
     reducers: {
+        clearSearchResults: (state) => {
+            state.contents = {};
+        }
 
     },
     extraReducers: (builder) => {
@@ -28,7 +31,19 @@ const options = {
             .addCase(getSearchResults.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.hasFailed = false;
-                state.contents = action.payload;
+                action.payload.map(content => {
+                    state.contents[content.data.title] = {
+                        title: content.data.title,
+                        subreddit: content.data.subreddit,
+                        upvotes: content.data.ups,
+                        author: content.data.author,
+                        url: content.data.url,
+                        comments: content.data.num_comments,
+                        key: content.data.title,
+                        thumbnail: content.data.thumbnail
+                    };
+
+                })
             })
             .addCase(getSearchResults.rejected, (state) => {
                 state.isLoading = false;
@@ -40,4 +55,5 @@ const options = {
 }
 export const selectSearchResults = state => state.searchResults.contents;
 const searchResultsSlice = createSlice(options);
+export const {clearSearchResults} = searchResultsSlice.actions;
 export default searchResultsSlice.reducer;

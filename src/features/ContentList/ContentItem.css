@@ -12,11 +12,32 @@
     padding: 5px;
 }
 
+.above-title {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center ;
+}
+
+.favorites-button {
+    border: 2px solid blue;
+    padding: 5px;
+}
+
+.favorites-button:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: 2px solid white;
+}
+
 .title {
     display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .title h4 {

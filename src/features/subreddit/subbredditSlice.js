@@ -14,9 +14,12 @@ const options = {
     initialState: {
         isLoading: false,
         hasFailed: false,
-        contents: []
+        contents: {}
     },
     reducers: {
+        clearContents: (state) => {
+            state.contents = {};
+        }
 
     },
     extraReducers: (builder) => {
@@ -28,7 +31,19 @@ const options = {
             .addCase(getContents.fulfilled, (state,action) => {
                 state.isLoading = false;
                 state.hasFailed = false;
-                state.contents = action.payload; //could create a problem when trying to load next 25
+                action.payload.map(content => {
+                    state.contents[content.data.title] = {
+                        title: content.data.title,
+                        subreddit: content.data.subreddit,
+                        upvotes: content.data.ups,
+                        author: content.data.author,
+                        url: content.data.url,
+                        comments: content.data.num_comments,
+                        key: content.data.title,
+                        thumbnail: content.data.thumbnail
+                    };
+
+                })
             })
             .addCase(getContents.rejected, (state) => {
                 state.isLoading = false;
@@ -38,4 +53,5 @@ const options = {
 }
 export const selectSubredditContents = state => state.subredditResults.contents;
 const subredditSlice = createSlice(options);
+export const {clearContents} = subredditSlice.actions;
 export default subredditSlice.reducer;

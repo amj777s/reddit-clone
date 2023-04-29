@@ -1,0 +1,9 @@
+.comment-page {
+    width: 50%;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}

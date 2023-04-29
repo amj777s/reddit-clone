@@ -1,0 +1,34 @@
+ /* Favorites Bar */
+ .favorites-bar {
+    margin-top: 100px;
+    background-color: whitesmoke;
+    width: 20%;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    text-align: center;
+    overflow: scroll;
+    height: 75%;
+}   
+
+.favorites-bar h2 {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+}
+
+.download-button {
+    border: 2px solid blue;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.download-button:hover {
+    background-color: blue;
+    color: white;
+   
+}
+  
+  
