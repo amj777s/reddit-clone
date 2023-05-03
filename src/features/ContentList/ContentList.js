@@ -34,12 +34,15 @@ export default function ContentList() {
                     <ContentItem
                         title={content.title}
                         subreddit={content.subreddit}
-                        upvotes={content.ups}
+                        upvotes={content.upvotes}
                         author={content.author}
                         url={content.url}
+                        commentPage = {content.commentPage}
                         comments={content.comments}
                         key={content.title}
                         thumbnail={content.thumbnail}
+                        media = {content.media}
+                        isVideo = {content.isVideo}
                     />
                 )
             })}

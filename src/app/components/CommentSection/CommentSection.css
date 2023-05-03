@@ -1,0 +1,27 @@
+.comment {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px ;
+}
+.comment-author {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+}
+.comment-body {
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+    color: black;
+}
+
+.comment-upvotes {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: flex-start;
+    color: black;
+    
+}

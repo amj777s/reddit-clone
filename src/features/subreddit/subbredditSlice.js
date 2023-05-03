@@ -35,12 +35,16 @@ const options = {
                     state.contents[content.data.title] = {
                         title: content.data.title,
                         subreddit: content.data.subreddit,
+                        commentPage: content.data.permalink,
                         upvotes: content.data.ups,
                         author: content.data.author,
                         url: content.data.url,
                         comments: content.data.num_comments,
                         key: content.data.title,
-                        thumbnail: content.data.thumbnail
+                        thumbnail: content.data.thumbnail,
+                        isVideo: content.data.is_video,
+                        media: content.data.media
+                        
                     };
 
                 })

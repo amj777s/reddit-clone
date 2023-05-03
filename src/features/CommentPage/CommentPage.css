@@ -1,9 +1,62 @@
-.comment-page {
+.content {
+    display: flex;
     width: 50%;
+    flex-direction: column;
+    margin: 0 auto;
+    overflow-y: scroll;
+    text-align: center;
+    background-color: whitesmoke;
     margin: 100px auto;
+}
+.content-section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    align-items: center;
 
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between  ;
+    align-items: center;
+    width: 100%;
+    color: black;
+}
+
+.details > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+}
+
+.votes {
+    margin-right: 10px;
+}
+
+.video {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 500px;
+}
+.icons {
+    height: 1rem;
+}
+.comment-page img {
+    width: 75%;
+}
+
+.favorites-button {
+    border: 2px solid blue;
+    padding: 5px;
+}
+
+.favorites-button:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: 2px solid white;
 }

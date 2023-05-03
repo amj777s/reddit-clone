@@ -7,7 +7,7 @@ import FavoritesBar from "../../../features/FavoritesBar/FavoritesBar";
 
 export default function Root() {
     return (
-        <div className='App'>
+        <div className='App'>   
             <header>
                 <h1>Reddit-Lite</h1>
                 <SearchBar />

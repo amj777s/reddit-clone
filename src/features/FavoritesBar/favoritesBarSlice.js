@@ -16,6 +16,10 @@ const options = {
         },
         deleteFavorite: (state, action) => {
             delete state.favorites[action.payload];
+        },
+        deleteAllFavorites: (state) => {
+            state.hasData = false;
+            state.favorites = {};
         }
 
     }
@@ -23,7 +27,7 @@ const options = {
 
 const favoritesBarSlice = createSlice(options);
 export default favoritesBarSlice.reducer;
-export const {addFavorite, deleteFavorite} = favoritesBarSlice.actions;
+export const {addFavorite, deleteFavorite, deleteAllFavorites} = favoritesBarSlice.actions;
 export const selectAllFavorites = state => state.favoritesBar.favorites;
 export const selectHasData = state => state.favoritesBar.hasData;
 export const selectFavorite = (state, title) => state.favoritesBar.favorites[title];
