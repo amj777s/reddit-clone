@@ -1,9 +1,9 @@
 import React from "react";
-import './CommentSection.css';
+import './Comment.css';
 import { NumToStr } from "../../../utils/HelperFuncs";
 import upvoteArrow from '../../../icons/arrow-up.png';
 import downvoteArrow from '../../../icons/arrow-down.png';
-export default function CommentSection(props) {
+export default function Comment(props) {
     return (
         <div className="comment">
             <span className="comment-author">{`u/${props.author}`}</span>

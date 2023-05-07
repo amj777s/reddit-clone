@@ -6,3 +6,10 @@
     margin-top: 100px;
     overflow-y: scroll;
 }
+
+
+@media screen and (max-width: 500px) {
+    .main-content {
+        width: 100%;
+    }
+}

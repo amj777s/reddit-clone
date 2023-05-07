@@ -1,10 +1,10 @@
-import React, { useId } from "react";
+import React, { useEffect } from "react";
 import "./CommentPage.css";
 import {selectCommentInfo } from "./CommentPageSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { addFavorite } from "../FavoritesBar/favoritesBarSlice";
 import { NumToStr } from "../../utils/HelperFuncs";
-import CommentSection from "../../app/components/CommentSection/CommentSection";
+import Comment from "../../app/components/Comment/Comment";
 import redditLogo from '../../reddit_logo.png';
 import upvoteArrow from '../../icons/arrow-up.png';
 import downvoteArrow from '../../icons/arrow-down.png'
@@ -14,6 +14,12 @@ import commentIcon from '../../icons/comment.png';
 export default function CommentPage() {
     const comment_info = useSelector(selectCommentInfo);
     const dispatch = useDispatch();
+
+    useEffect(() =>{
+        window.scrollTo(0,0);
+    },
+    [comment_info]
+    )
 
     const loadDefaultsrc = (e) => {
         e.target.onerror = null;
@@ -34,7 +40,7 @@ export default function CommentPage() {
                 )
             }
             else {
-                return <img alt="ello" onError={loadDefaultsrc} src={comment_info.parent.thumbnail} />
+                return <img className="comment-img" alt="ello" onError={loadDefaultsrc} src={comment_info.parent.imgsrc} />
             }
     }
 
@@ -59,10 +65,11 @@ export default function CommentPage() {
                         Add to Favorites
                     </span>
                 </div>
-                {Object.values(comment_info.comments).map(comment => {
+            </div>
+            {Object.values(comment_info.comments).map(comment => {
                     return (
                         comment.body &&
-                        <CommentSection
+                        <Comment
                         key={comment.id}
                         author = {comment.author}
                         body = {comment.body}
@@ -70,7 +77,6 @@ export default function CommentPage() {
                          />
                     )
                 })}
-            </div>
         </div>
     )
 }

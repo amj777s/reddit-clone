@@ -1,0 +1,25 @@
+.errorPage {
+    display: flex;
+    flex-direction: column; 
+    position: absolute;
+    justify-content: flex-start;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #313131;
+    z-index: 1000;
+    background-image: url('../../../notFound.jpg');
+    background-size: 100% auto;
+    background-position: 25% 75%;
+    background-repeat: no-repeat;
+    color: whitesmoke;
+
+}
+
+.errorPage span:hover {
+    background-color: #969494;
+    cursor: pointer;
+}
+

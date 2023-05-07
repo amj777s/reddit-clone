@@ -16,3 +16,7 @@ export const NumToStr = (num=0) => {
     }
 }
 
+export const toggleState = (state, setter) => {
+    state? setter(false): setter(true);
+}
+

@@ -45,7 +45,8 @@ const options = {
                     thumbnail: action.payload["0"].data.children["0"].data.thumbnail,
                     isVideo:action.payload["0"].data.children["0"].data.is_video,
                     subreddit: action.payload["0"].data.children["0"].data.subreddit,
-                    commentPage: action.payload["0"].data.children["0"].data.subreddit
+                    commentPage: action.payload["0"].data.children["0"].data.subreddit,
+                    imgsrc: action.payload["0"].data.children["0"].data.url_overridden_by_dest
                 };
                 state.info.comments = {};
                 action.payload["1"].data.children.map(comment => {

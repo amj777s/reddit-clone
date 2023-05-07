@@ -3,6 +3,7 @@ import React from 'react';
 import Root from './components/root/Root';
 import ContentList from '../features/ContentList/ContentList';
 import CommentPage from '../features/CommentPage/CommentPage';
+import NotFound from './components/NotFound/NotFound';
 import { getContents} from '../features/subreddit/subbredditSlice';
 import { useDispatch } from 'react-redux';
 import {
@@ -16,20 +17,24 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
       <Route path="/" element={<Root />}>
-          <Route 
-            path = 'r/:subreddit' 
-            element={<ContentList />}
-          />
-          <Route
-            path='r/:subreddit/comments/:user/:title'
-            element={<CommentPage />}
-          />
+        <Route 
+          path = 'r/:subreddit' 
+          element={<ContentList />}
+        />
+        <Route
+          path='r/:subreddit/comments/:user/:title'
+          element={<CommentPage />}
+        />
           
         <Route 
           path='search/:searchresult' 
           element={<ContentList />}
         />
-      </Route>
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
+    </Route>
   )
 )
 
