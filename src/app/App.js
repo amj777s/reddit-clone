@@ -4,13 +4,11 @@ import Root from './components/root/Root';
 import ContentList from '../features/ContentList/ContentList';
 import CommentPage from '../features/CommentPage/CommentPage';
 import NotFound from './components/NotFound/NotFound';
-import { getContents} from '../features/subreddit/subbredditSlice';
-import { useDispatch } from 'react-redux';
+
 import {
 	createBrowserRouter,
   createRoutesFromElements,
 	Route,
-  Routes,
   RouterProvider,     
 } from "react-router-dom";
 
@@ -44,7 +42,6 @@ function App() {
     <RouterProvider router={router} />
   )
 }
-
 export default App;
 
 

@@ -43,7 +43,7 @@ export default function ContentItem(props) {
             <Link to={props.commentPage}>
                 <div className="title" onClick={loadCommentPage}>
                     <h4>{props.title}</h4>
-                    {props.thumbnail && <img className="media" alt="ello" src={props.thumbnail} onError={loadDefaultsrc} />}
+                    {props.thumbnail && <img className="media" alt="" src={props.thumbnail} onError={loadDefaultsrc} />}
                 </div>
             </Link>
             <div className="extras">

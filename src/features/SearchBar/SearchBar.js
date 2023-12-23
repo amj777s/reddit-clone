@@ -1,4 +1,4 @@
-import React,{ useState} from "react";
+import {React, useState} from "react";
 import './SearchBar.css'
 import { getSearchResults } from "./seachBarSlice";
 import { useDispatch } from "react-redux";

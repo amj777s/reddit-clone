@@ -15,3 +15,7 @@ export const menuStyle = {
 export const hidden= {
 display: 'none'
 }
+
+export const bringDown = {
+    top: 0
+}

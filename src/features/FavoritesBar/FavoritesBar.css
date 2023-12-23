@@ -6,6 +6,7 @@
     position: fixed;
     z-index: 10;
     right: 0;
+    top: -100%;
     text-align: center;
     overflow: scroll;
     height: 75%;
@@ -17,6 +18,22 @@
     z-index: 10;
     background-color: white;
 }
+
+.zmenuStyle{
+    display: flex;
+    position: fixed;
+    overflow: scroll;
+    margin: 0;
+    top:0;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+   background-color: whitesmoke;
+    z-index: 10;
+    }
+  
 
 .download-button {
     border: 2px solid blue;
@@ -32,10 +49,12 @@
    
 }
 
-@media screen and (max-width: 500px) {
+
+@media screen and (min-width: 500px) {
     .favorites-bar {
-        display: none;
+        top: 0;
     }
 }
+  
   
   
